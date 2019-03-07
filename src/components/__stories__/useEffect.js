@@ -10,6 +10,9 @@ import { WithUseEffect as SimpleWithUseEffect } from "../useEffect/simple-hooks"
 import { WithoutUseEffect as AdvancedWithoutUseEffect } from "../useEffect/advanced";
 import { WithUseEffect as AdvancedWithUseEffect } from "../useEffect/advanced-hooks";
 
+import { WithoutUseEffect as WillUnmountWithoutUseEffect } from "../useEffect/will-unmount";
+import { WithUseEffect as WillUnmountWithUseEffect } from "../useEffect/will-unmount-hooks";
+
 storiesOf("useEffect/Simple", module)
   .addDecorator(withKnobs)
   .add("Without", () => <SimpleWithoutUseEffect value={number("value", 5)} />)
@@ -25,6 +28,21 @@ storiesOf("useEffect/Advanced", module)
   ))
   .add("With", () => (
     <AdvancedWithUseEffect
+      value1={number("value1", 5)}
+      value2={number("value2", 5)}
+    />
+  ));
+
+storiesOf("useEffect/WillUnmount", module)
+  .addDecorator(withKnobs)
+  .add("Without", () => (
+    <WillUnmountWithoutUseEffect
+      value1={number("value1", 5)}
+      value2={number("value2", 5)}
+    />
+  ))
+  .add("With", () => (
+    <WillUnmountWithUseEffect
       value1={number("value1", 5)}
       value2={number("value2", 5)}
     />
